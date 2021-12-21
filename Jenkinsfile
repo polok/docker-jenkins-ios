@@ -1,10 +1,6 @@
 pipeline {
   agent {
     dockerfile true
-    
-    node {
-      label 'macmini'
-    }
   }
   stages {
     stage('Build') {
