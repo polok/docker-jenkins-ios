@@ -9,9 +9,4 @@ pipeline {
       }
     }
   }
-  post {
-    always {
-      sh 'echo "Destroy"'
-    }
-  }
 }
