@@ -1,5 +1,7 @@
 pipeline {
   agent {
+    dockerfile true
+    
     node {
       label 'macmini'
     }
