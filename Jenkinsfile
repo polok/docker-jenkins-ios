@@ -1,8 +1,6 @@
 pipeline {
 
-  agent {
-    dockerfile true
-  }
+  agent any
 
   environment {
     PATH = "/usr/local/bin:$PATH"
