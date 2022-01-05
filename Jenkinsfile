@@ -15,6 +15,7 @@ pipeline {
     stage('Build') {
       steps {
         sh 'ls -ls'
+        sh 'vagrant ssh -c "ls -ls"'
         sh 'cd bob'
         sh 'vagrant ssh -c "xcodebuild -project bob.xcodeproj -scheme bob -sdk iphoneos archive -archivePath bob/build/bob.xcarchive -allowProvisioningUpdates | /usr/local/bin/xcpretty"'
       }
