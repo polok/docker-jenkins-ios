@@ -8,7 +8,9 @@ pipeline {
 
   stages {
     stage("Vagrant VM init") {
-      sh 'vagrant up'
+      steps {
+        sh 'vagrant up'
+      }
     }
     stage('Build') {
       steps {
