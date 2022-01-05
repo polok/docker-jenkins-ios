@@ -3,7 +3,9 @@ ENV["VAGRANT_EXPERIMENTAL"] = "typed_triggers"
 Vagrant.configure("2") do |config|
     config.vm.box = "amarcireau/macos"
     config.vm.box_version = "11.3.1"
-    config.vm.synced_folder "bob", "/vagrant/workspace/bob"
+
+    config.vm.network = "private_network", ip: "192.168.0.2"
+    config.vm.synced_folder "bob", "/vagrant/workspace/bob", type: "nfs"
 
     config.vm.provider "virtualbox" do |v|
         v.check_guest_additions = false
