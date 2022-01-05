@@ -6,7 +6,7 @@ Vagrant.configure("2") do |config|
 
     config.vm.network :private_network, ip: "192.168.0.2"
     config.vm.synced_folder "bob", "/vagrant/workspace/bob", type: "nfs"
-vagvag
+
     config.vm.provider "virtualbox" do |v|
         v.check_guest_additions = false
     end
