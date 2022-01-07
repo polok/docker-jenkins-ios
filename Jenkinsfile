@@ -2,28 +2,15 @@ pipeline {
 
   agent any
 
-  environment {
-    PATH = "/usr/local/bin:$PATH"
-  }
-
   stages {
-    stage("Vagrant VM init") {
-      steps {
-        sh 'vagrant up'
-      }
-    }
     stage('Build') {
       steps {
-        sh 'ls -ls'
-        sh 'vagrant ssh -c "ls -ls"'
-        sh 'vagrant ssh -c "cd workspace/bob"'
-        sh 'vagrant ssh -c "xcodebuild -project bob.xcodeproj -scheme bob -sdk iphoneos archive -archivePath bob/build/bob.xcarchive -allowProvisioningUpdates | /usr/local/bin/xcpretty"'
+        xcodebuild -project bob/bob.xcodeproj -scheme bob -sdk iphoneos archive -archivePath bob/build/bob.xcarchive -allowProvisioningUpdates | /usr/local/bin/xcpretty
       }
     }
   }
   post {
     always {
-      sh 'vagrant halt'
       sh 'echo "Destroy"'
     }
   }
