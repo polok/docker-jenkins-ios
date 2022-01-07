@@ -4,7 +4,7 @@ Vagrant.configure("2") do |config|
     config.vm.box = "amarcireau/macos"
     config.vm.box_version = "11.3.1"
 
-    config.vm.network "private_network", ip: "192.168.1.150"
+    config.vm.network "private_network", ip: "192.168.56.10"
     config.vm.synced_folder ".", "/dev", type: "nfs"
 
     config.vm.provider "virtualbox" do |v|
